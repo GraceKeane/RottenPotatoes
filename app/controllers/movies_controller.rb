@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
     # If sort OR ratings are nill and have no cookies
     if (params[:sort].nil? && !session[:sort].nil?) || (params[:ratings].nil? && !session[:ratings].nil?)
       
-      redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
+        redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
       
     # If ratings and sort are not null
     elsif !params[:ratings].nil? || !params[:sort].nil?
@@ -41,9 +41,9 @@ class MoviesController < ApplicationController
         return @movies = Movie.all(session[:sort])
     end
       
-    elsif !session[:ratings].nil? || session[:sort].nil?
+    elsif !session[:ratings].nil? || !session[:sort].nil?
       # Return session (last state)
-      redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
+       redirect_to movies_path("ratings" => session[:ratings], "sort" => session[:sort])
       else
         # Return all movies in the DB
         return @movies = Movie.all
