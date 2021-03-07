@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.table#movies th.hilite{
+  /*
+   * Color code - www.colorhexa.com (yellow Orange)
+   */
+  background-color:#ffbe42;
+}
